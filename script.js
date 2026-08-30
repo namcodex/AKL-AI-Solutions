@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleUserMessage(chatInput.value);
   });
 
-  addMessage('Welcome. How can I assist you today?', 'assistant');
+  addMessage('Welcome to the Al Khaznah AI Assistant. How can I help you today?', 'assistant');
 
   /* ---------------------------------------------------------
      DOCUMENTS — upload demo
@@ -357,8 +357,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return `${x},${y}`;
     }).join(' ');
     container.innerHTML = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
-      <polyline points="${points}" fill="none" stroke="#B9924A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      ${data.map((d,i)=>{const x=pad+i*step;const y=h-pad-((d.value-min)/range)*(h-pad*2);return `<circle cx="${x}" cy="${y}" r="3" fill="#0D3A2C"/>`;}).join('')}
+      <polyline points="${points}" fill="none" stroke="#DF5E3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      ${data.map((d,i)=>{const x=pad+i*step;const y=h-pad-((d.value-min)/range)*(h-pad*2);return `<circle cx="${x}" cy="${y}" r="3" fill="#1E1B17"/>`;}).join('')}
     </svg>`;
   }
 
