@@ -1,349 +1,1766 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AKL AI Solutions — AI Automation & Business Intelligence Portal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AKL AI Solutions - AI Automation & Business Intelligence Portal">
+    <title>AKL AI Solutions</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="app-shell">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <img src="assets/akl-logo.png" alt="Al Khaznah Leathers logo" class="brand-logo">
-      <div class="brand-text">
-        <span class="brand-line1">AL KHAZNAH LEATHERS</span>
-        <span class="brand-line2">AI Solutions Portal</span>
-      </div>
-    </div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
 
-    <nav class="sidebar-nav">
-      <div class="nav-group-label">Overview</div>
-      <button class="nav-item active" data-section="dashboard">
-        <span class="nav-dot"></span>Dashboard
-      </button>
-      <button class="nav-item" data-section="assistant">
-        <span class="nav-dot"></span>AI Assistant
-      </button>
-      <button class="nav-item" data-section="documents">
-        <span class="nav-dot"></span>Documents
-      </button>
-      <button class="nav-item" data-section="reports">
-        <span class="nav-dot"></span>Reports &amp; Analytics
-      </button>
-
-      <div class="nav-group-label">Business Functions</div>
-      <button class="nav-item" data-section="hr">
-        <span class="nav-dot"></span>HR &amp; Employee
-      </button>
-      <button class="nav-item" data-section="finance">
-        <span class="nav-dot"></span>Finance
-      </button>
-      <button class="nav-item" data-section="sales">
-        <span class="nav-dot"></span>Sales &amp; CRM
-      </button>
-      <button class="nav-item" data-section="it">
-        <span class="nav-dot"></span>IT Service Desk
-      </button>
-      <button class="nav-item" data-section="operations">
-        <span class="nav-dot"></span>Operations
-      </button>
-      <button class="nav-item" data-section="social">
-        <span class="nav-dot"></span>Social Media
-      </button>
-    </nav>
-
-    <div class="sidebar-footer">
-      <div class="user-chip">
-        <div class="user-initials">NM</div>
-        <div class="user-info">
-          <span class="user-name">Nafidah Mauna</span>
-          <span class="user-role">AI Specialist</span>
-        </div>
-      </div>
-    </div>
-  </aside>
-
-  <!-- MAIN -->
-  <div class="main-column">
-
-    <header class="topbar">
-      <div class="topbar-left">
-        <img src="assets/akl-logo.png" alt="Al Khaznah Leathers" class="topbar-logo">
-        <div class="topbar-text">
-          <span class="topbar-company">AL KHAZNAH LEATHERS</span>
-          <span class="topbar-sub">AI Solutions &amp; Automation</span>
-        </div>
-      </div>
-      <div class="topbar-right">
-        <select id="role-select" class="role-select" title="Simulate a role to preview access restrictions">
-          <option value="employee">Viewing as: Employee</option>
-          <option value="manager">Viewing as: Manager</option>
-          <option value="hr">Viewing as: HR</option>
-          <option value="finance">Viewing as: Finance</option>
-          <option value="it">Viewing as: IT</option>
-          <option value="sales">Viewing as: Sales</option>
-          <option value="operations">Viewing as: Operations</option>
-          <option value="admin">Viewing as: Management (CEO/CFO)</option>
-        </select>
-        <span class="status-pill"><span class="status-dot"></span>Prototype Environment</span>
-        <div class="user-initials small">NM</div>
-      </div>
-    </header>
-
-    <main class="content" id="content">
-
-      <!-- DASHBOARD -->
-      <section class="view active" id="view-dashboard">
-
-        <div class="hero">
-          <div class="hero-copy">
-            <span class="eyebrow">AI Solutions &amp; Automation</span>
-            <h1>Centralized AI for smarter business operations.</h1>
-            <p class="hero-desc">A proposed AI platform designed to assist employees, automate repetitive processes, analyze documents, generate reports and connect with approved business systems.</p>
-            <button class="btn btn-primary" data-nav="assistant">Open AI Assistant</button>
-          </div>
+        <div class="brand">
+            <div class="brand-mark">AKL</div>
+            <div>
+                <strong>AKL AI</strong>
+                <span>Solutions Portal</span>
+            </div>
         </div>
 
-        <div class="role-banner">
-          <strong>Tip for the demo:</strong> use "Viewing as" in the top right to switch roles — the sidebar and the AI Assistant's answers change based on the selected role, simulating department-level access restrictions. This is a conceptual demonstration only, not a real authentication system.
+        <div class="prototype-badge">
+            CEO DEMO ENVIRONMENT
         </div>
 
-        <div class="kpi-grid">
-          <div class="kpi-card">
-            <span class="kpi-value">09</span>
-            <span class="kpi-label">AI Modules</span>
-            <span class="kpi-note">Proposed capabilities</span>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-value">08</span>
-            <span class="kpi-label">Automation Areas</span>
-            <span class="kpi-note">Business functions</span>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-value">04</span>
-            <span class="kpi-label">Report Types</span>
-            <span class="kpi-note">PDF · Excel · PPT · Charts</span>
-          </div>
-          <div class="kpi-card">
-            <span class="kpi-value">ERP</span>
-            <span class="kpi-label">Integration Ready</span>
-            <span class="kpi-note">Subject to system/API approval</span>
-          </div>
+        <nav class="main-nav">
+
+            <button class="nav-item active" data-page="dashboard">
+                <span>Dashboard</span>
+            </button>
+
+            <button class="nav-item" data-page="assistant">
+                <span>AI Assistant</span>
+            </button>
+
+            <button class="nav-item" data-page="workflows">
+                <span>Workflow Center</span>
+                <span class="nav-count" id="workflowCount">0</span>
+            </button>
+
+            <button class="nav-item" data-page="approvals">
+                <span>Approval Center</span>
+                <span class="nav-count" id="approvalCount">0</span>
+            </button>
+
+            <button class="nav-item" data-page="documents">
+                <span>Documents</span>
+            </button>
+
+            <button class="nav-item" data-page="reports">
+                <span>Reports & Analytics</span>
+            </button>
+
+            <div class="nav-section-title">BUSINESS FUNCTIONS</div>
+
+            <button class="nav-item" data-page="hr">
+                <span>HR & Employee</span>
+            </button>
+
+            <button class="nav-item" data-page="finance">
+                <span>Finance</span>
+            </button>
+
+            <button class="nav-item" data-page="sales">
+                <span>Sales & CRM</span>
+            </button>
+
+            <button class="nav-item" data-page="it">
+                <span>IT Service Desk</span>
+            </button>
+
+            <button class="nav-item" data-page="operations">
+                <span>Operations</span>
+            </button>
+
+            <button class="nav-item" data-page="social">
+                <span>Social Media</span>
+            </button>
+
+            <div class="nav-section-title">SYSTEM</div>
+
+            <button class="nav-item" data-page="notifications">
+                <span>Notifications</span>
+                <span class="nav-count" id="notificationCount">0</span>
+            </button>
+
+            <button class="nav-item" data-page="audit">
+                <span>Audit Log</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-user">
+            <div class="avatar">SR</div>
+            <div class="user-details">
+                <strong>Shamsa Muaid Al Ahbabi</strong>
+                <span>CEO · Demo Account</span>
+            </div>
         </div>
 
-        <div class="section-block">
-          <div class="section-heading">
-            <h2>AI Modules</h2>
-            <span class="section-tag">Proposed</span>
-          </div>
-          <div class="module-grid" id="module-grid"></div>
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div class="mobile-brand">
+                <strong>AKL AI</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    Prototype Active
+                </div>
+
+                <button class="icon-button" data-page="notifications" title="Notifications">
+                    <span class="notification-bell">N</span>
+                    <span class="notification-dot" id="topNotificationDot"></span>
+                </button>
+
+                <div class="top-user">
+                    <div class="avatar small">SR</div>
+                    <div>
+                        <strong>Shamsa Muaid Al Ahbabi</strong>
+                        <span>Chief Executive Officer</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTAINER -->
+        <div class="page-container">
+
+
+            <!-- =====================================================
+                 DASHBOARD
+            ====================================================== -->
+
+            <section class="page active" id="page-dashboard">
+
+                <div class="page-heading">
+                    <div>
+                        <div class="eyebrow">EXECUTIVE OVERVIEW</div>
+                        <h1>AI Solutions & Automation</h1>
+                        <p>
+                            Centralized AI assistance for business information,
+                            workflows, documents, reporting and operational intelligence.
+                        </p>
+                    </div>
+
+                    <button class="primary-button" data-page="assistant">
+                        Open AI Assistant
+                    </button>
+                </div>
+
+                <div class="demo-notice">
+                    <strong>CEO Demonstration Environment</strong>
+                    <span>
+                        All requests, statistics and integrations shown in this prototype
+                        are demonstration data. No AKL production systems are connected.
+                    </span>
+                </div>
+
+
+                <div class="metric-grid">
+
+                    <div class="metric-card">
+                        <div class="metric-label">Pending Approvals</div>
+                        <div class="metric-value" id="metricApprovals">0</div>
+                        <div class="metric-description">Awaiting authorized review</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">Active Requests</div>
+                        <div class="metric-value" id="metricRequests">0</div>
+                        <div class="metric-description">Business workflows</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">Documents Processed</div>
+                        <div class="metric-value">142</div>
+                        <div class="metric-description">Sample demonstration data</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">Reports Generated</div>
+                        <div class="metric-value">34</div>
+                        <div class="metric-description">Sample demonstration data</div>
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-grid">
+
+                    <div class="panel workflow-overview">
+
+                        <div class="panel-header">
+                            <div>
+                                <div class="eyebrow">AUTOMATION</div>
+                                <h2>How the AI Workflow Works</h2>
+                            </div>
+                            <button class="text-button" data-page="workflows">
+                                View Workflows
+                            </button>
+                        </div>
+
+                        <div class="workflow-line">
+
+                            <div class="workflow-step">
+                                <div class="workflow-number">01</div>
+                                <strong>User Request</strong>
+                                <span>Employee or manager submits a request.</span>
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                <div class="workflow-number">02</div>
+                                <strong>AI Understanding</strong>
+                                <span>AI identifies intent and department.</span>
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                <div class="workflow-number">03</div>
+                                <strong>Validation</strong>
+                                <span>Business rules and authorization.</span>
+                            </div>
+
+                            <div class="workflow-arrow">→</div>
+
+                            <div class="workflow-step">
+                                <div class="workflow-number">04</div>
+                                <strong>Approval / Action</strong>
+                                <span>Authorized person or system completes it.</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel quick-actions">
+
+                        <div class="panel-header">
+                            <div>
+                                <div class="eyebrow">QUICK ACTIONS</div>
+                                <h2>Demonstrate the Platform</h2>
+                            </div>
+                        </div>
+
+                        <div class="quick-action-grid">
+
+                            <button class="action-card" data-page="assistant">
+                                <strong>Ask AI</strong>
+                                <span>Ask a business question</span>
+                            </button>
+
+                            <button class="action-card" data-page="approvals">
+                                <strong>Review Approvals</strong>
+                                <span>Review pending requests</span>
+                            </button>
+
+                            <button class="action-card" data-page="documents">
+                                <strong>Analyze Document</strong>
+                                <span>Demonstrate PDF extraction</span>
+                            </button>
+
+                            <button class="action-card" data-page="social">
+                                <strong>Social Analytics</strong>
+                                <span>Review sample performance</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <div class="eyebrow">RECENT ACTIVITY</div>
+                            <h2>Business Workflow Activity</h2>
+                        </div>
+                    </div>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Reference</th>
+                                    <th>Request</th>
+                                    <th>Department</th>
+                                    <th>Status</th>
+                                    <th>Last Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="recentActivityTable"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 AI ASSISTANT
+            ====================================================== -->
+
+            <section class="page" id="page-assistant">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">CENTRAL AI INTERFACE</div>
+                        <h1>AKL AI Assistant</h1>
+                        <p>
+                            Ask questions, understand procedures, or start approved business workflows.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="assistant-layout">
+
+                    <div class="assistant-panel">
+
+                        <div class="assistant-header">
+
+                            <div class="assistant-profile">
+                                <div class="ai-avatar">AI</div>
+
+                                <div>
+                                    <strong>Al Khaznah AI Assistant</strong>
+                                    <span>
+                                        Business information & workflow assistance
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="assistant-status">
+                                <span class="status-dot"></span>
+                                Available
+                            </div>
+
+                        </div>
+
+
+                        <div class="chat-area" id="chatArea">
+
+                            <div class="chat-message ai-message">
+
+                                <div class="message-label">AKL AI</div>
+
+                                <div class="message-bubble">
+
+                                    <p>
+                                        Welcome to the Al Khaznah AI Assistant.
+                                    </p>
+
+                                    <p>
+                                        I can help with approved business information,
+                                        identify the appropriate department, and start
+                                        business workflows.
+                                    </p>
+
+                                    <p class="small-note">
+                                        I will not guess when approved information is unavailable.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="suggestions">
+
+                            <div class="suggestion-title">
+                                Suggested requests
+                            </div>
+
+                            <div class="suggestion-buttons">
+
+                                <button
+                                    class="suggestion-button"
+                                    data-question="How can I request annual leave?"
+                                >
+                                    HR & Leave
+                                </button>
+
+                                <button
+                                    class="suggestion-button"
+                                    data-question="How do I submit an expense claim?"
+                                >
+                                    Finance
+                                </button>
+
+                                <button
+                                    class="suggestion-button"
+                                    data-question="I need help with my password."
+                                >
+                                    IT Support
+                                </button>
+
+                                <button
+                                    class="suggestion-button"
+                                    data-question="How do I report an operational or safety issue?"
+                                >
+                                    Operations
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <form class="chat-input-area" id="chatForm">
+
+                            <input
+                                type="text"
+                                id="chatInput"
+                                placeholder="Type your request..."
+                                autocomplete="off"
+                            >
+
+                            <button type="submit" class="primary-button">
+                                Send
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <div class="assistant-side-panel">
+
+                        <div class="panel">
+
+                            <div class="eyebrow">AI BEHAVIOR</div>
+
+                            <h3>How the assistant handles requests</h3>
+
+                            <div class="mini-process">
+
+                                <div>
+                                    <span>01</span>
+                                    <strong>Understand</strong>
+                                    <p>Identify the user's intent.</p>
+                                </div>
+
+                                <div>
+                                    <span>02</span>
+                                    <strong>Classify</strong>
+                                    <p>Identify department and workflow.</p>
+                                </div>
+
+                                <div>
+                                    <span>03</span>
+                                    <strong>Validate</strong>
+                                    <p>Check required information.</p>
+                                </div>
+
+                                <div>
+                                    <span>04</span>
+                                    <strong>Route</strong>
+                                    <p>Send to the appropriate person or system.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="panel security-panel">
+
+                            <div class="eyebrow">CONTROL</div>
+
+                            <h3>Human approval remains in control</h3>
+
+                            <p>
+                                The AI can understand and prepare a request,
+                                but sensitive business decisions remain with
+                                authorized personnel.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 WORKFLOW CENTER
+            ====================================================== -->
+
+            <section class="page" id="page-workflows">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">BUSINESS PROCESS AUTOMATION</div>
+                        <h1>Workflow Center</h1>
+                        <p>
+                            Central view of AI-assisted business requests.
+                        </p>
+                    </div>
+
+                    <button class="secondary-button" id="clearDemoData">
+                        Reset Demo Data
+                    </button>
+
+                </div>
+
+
+                <div class="workflow-status-grid">
+
+                    <div class="status-card">
+                        <span>Pending</span>
+                        <strong id="workflowPending">0</strong>
+                    </div>
+
+                    <div class="status-card">
+                        <span>Approved</span>
+                        <strong id="workflowApproved">0</strong>
+                    </div>
+
+                    <div class="status-card">
+                        <span>Rejected</span>
+                        <strong id="workflowRejected">0</strong>
+                    </div>
+
+                    <div class="status-card">
+                        <span>Total</span>
+                        <strong id="workflowTotal">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <div>
+                            <div class="eyebrow">REQUESTS</div>
+                            <h2>Business Requests</h2>
+                        </div>
+                    </div>
+
+                    <div id="workflowList" class="request-list"></div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 APPROVAL CENTER
+            ====================================================== -->
+
+            <section class="page" id="page-approvals">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">AUTHORIZED ACTION</div>
+                        <h1>Approval Center</h1>
+                        <p>
+                            Review and process requests awaiting management approval.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="approval-banner">
+
+                    <div>
+                        <strong>CEO Demo Account</strong>
+                        <span>
+                            You are viewing the approval workflow as the CEO.
+                        </span>
+                    </div>
+
+                    <div class="approval-authority">
+                        Authorized Demo Approver
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <div class="eyebrow">PENDING</div>
+                            <h2>Requests Awaiting Approval</h2>
+                        </div>
+
+                    </div>
+
+                    <div id="approvalList" class="approval-list"></div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 DOCUMENTS
+            ====================================================== -->
+
+            <section class="page" id="page-documents">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">DOCUMENT INTELLIGENCE</div>
+                        <h1>Document Intelligence</h1>
+                        <p>
+                            Demonstration of extracting information from large documents
+                            and preparing structured business outputs.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="document-grid">
+
+                    <div class="panel">
+
+                        <div class="eyebrow">STEP 01</div>
+                        <h2>Upload Document</h2>
+
+                        <div class="upload-box" id="uploadBox">
+
+                            <input
+                                type="file"
+                                id="documentInput"
+                                accept=".pdf,.xlsx,.xls,.csv,.doc,.docx,.txt"
+                                hidden
+                            >
+
+                            <div class="upload-title">
+                                Select a demonstration document
+                            </div>
+
+                            <div class="upload-description">
+                                PDF, Excel, Word or CSV
+                            </div>
+
+                            <button class="secondary-button" id="chooseDocument">
+                                Choose File
+                            </button>
+
+                        </div>
+
+                        <div id="selectedDocument" class="selected-document hidden"></div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="eyebrow">STEP 02</div>
+                        <h2>Processing</h2>
+
+                        <div class="processing-list" id="processingList">
+
+                            <div>
+                                <span>01</span>
+                                <p>Document received</p>
+                                <strong>Waiting</strong>
+                            </div>
+
+                            <div>
+                                <span>02</span>
+                                <p>Text extraction</p>
+                                <strong>Waiting</strong>
+                            </div>
+
+                            <div>
+                                <span>03</span>
+                                <p>Tables identified</p>
+                                <strong>Waiting</strong>
+                            </div>
+
+                            <div>
+                                <span>04</span>
+                                <p>Information structured</p>
+                                <strong>Waiting</strong>
+                            </div>
+
+                            <div>
+                                <span>05</span>
+                                <p>Report prepared</p>
+                                <strong>Waiting</strong>
+                            </div>
+
+                        </div>
+
+                        <button class="primary-button full-width" id="processDocument">
+                            Analyze Document
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel hidden" id="documentResult">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <div class="eyebrow">EXTRACTED DATA</div>
+                            <h2>Structured Information</h2>
+                        </div>
+
+                        <span class="sample-label">SAMPLE DATA</span>
+
+                    </div>
+
+
+                    <div class="document-summary">
+
+                        <div>
+                            <span>Pages</span>
+                            <strong>100</strong>
+                        </div>
+
+                        <div>
+                            <span>Tables</span>
+                            <strong>18</strong>
+                        </div>
+
+                        <div>
+                            <span>Records</span>
+                            <strong>247</strong>
+                        </div>
+
+                        <div>
+                            <span>Status</span>
+                            <strong>Completed</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Reference</th>
+                                    <th>Department</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>01/08/2026</td>
+                                    <td>DOC-001</td>
+                                    <td>Finance</td>
+                                    <td>Expense</td>
+                                    <td>AED 450</td>
+                                    <td><span class="status approved">Processed</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>04/08/2026</td>
+                                    <td>DOC-002</td>
+                                    <td>Operations</td>
+                                    <td>Purchase</td>
+                                    <td>AED 1,280</td>
+                                    <td><span class="status approved">Processed</span></td>
+                                </tr>
+
+                                <tr>
+                                    <td>08/08/2026</td>
+                                    <td>DOC-003</td>
+                                    <td>HR</td>
+                                    <td>Employee</td>
+                                    <td>—</td>
+                                    <td><span class="status approved">Processed</span></td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <div class="document-actions">
+
+                        <button class="secondary-button" id="generateExcel">
+                            Generate Excel
+                        </button>
+
+                        <button class="secondary-button" id="generateCharts">
+                            Generate Charts
+                        </button>
+
+                        <button class="secondary-button" id="generatePdf">
+                            Generate PDF Report
+                        </button>
+
+                        <button class="primary-button" id="generatePpt">
+                            Generate PowerPoint
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 REPORTS
+            ====================================================== -->
+
+            <section class="page" id="page-reports">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">BUSINESS INTELLIGENCE</div>
+                        <h1>Reports & Analytics</h1>
+                        <p>
+                            Convert approved data into management-ready insights.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="report-grid">
+
+                    <div class="report-card">
+
+                        <div class="report-number">01</div>
+
+                        <h3>PDF → Structured Data</h3>
+
+                        <p>
+                            Extract text, tables and relevant fields from approved documents.
+                        </p>
+
+                        <button class="secondary-button" data-page="documents">
+                            Open Document Intelligence
+                        </button>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <div class="report-number">02</div>
+
+                        <h3>Data → Charts</h3>
+
+                        <p>
+                            Turn structured information into management visualizations.
+                        </p>
+
+                        <button class="secondary-button" id="openChartDemo">
+                            View Chart Demo
+                        </button>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <div class="report-number">03</div>
+
+                        <h3>Executive Report</h3>
+
+                        <p>
+                            Summarize approved business data for management review.
+                        </p>
+
+                        <button class="secondary-button" id="executiveReportButton">
+                            Generate Preview
+                        </button>
+
+                    </div>
+
+
+                    <div class="report-card">
+
+                        <div class="report-number">04</div>
+
+                        <h3>Social Media Report</h3>
+
+                        <p>
+                            Combine platform metrics into a management-ready summary.
+                        </p>
+
+                        <button class="secondary-button" data-page="social">
+                            Open Social Analytics
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel" id="reportPreview">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <div class="eyebrow">REPORT PREVIEW</div>
+                            <h2>Executive Operations Summary</h2>
+                        </div>
+
+                        <span class="sample-label">DEMO</span>
+
+                    </div>
+
+
+                    <div class="report-preview-content">
+
+                        <div class="report-header">
+                            <strong>AKL AI Solutions</strong>
+                            <span>Executive Demonstration Report</span>
+                        </div>
+
+                        <h3>Business Automation Overview</h3>
+
+                        <p>
+                            This sample report demonstrates how approved business
+                            data could be summarized for management.
+                        </p>
+
+                        <div class="report-stat-grid">
+
+                            <div>
+                                <span>Requests</span>
+                                <strong>27</strong>
+                            </div>
+
+                            <div>
+                                <span>Approvals</span>
+                                <strong>12</strong>
+                            </div>
+
+                            <div>
+                                <span>Documents</span>
+                                <strong>142</strong>
+                            </div>
+
+                            <div>
+                                <span>Reports</span>
+                                <strong>34</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="report-insight">
+
+                            <strong>AI Summary</strong>
+
+                            <p>
+                                Sample activity indicates that centralized request
+                                routing could reduce repetitive manual coordination
+                                between departments while maintaining human approval
+                                for sensitive business actions.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 HR
+            ====================================================== -->
+
+            <section class="page" id="page-hr">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">BUSINESS FUNCTION</div>
+                        <h1>HR & Employee Services</h1>
+                        <p>
+                            Potential AI-assisted employee workflows.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="function-grid">
+
+                    <div class="function-card">
+
+                        <span class="function-tag">HR</span>
+
+                        <h3>Leave Requests</h3>
+
+                        <p>
+                            Understand leave requests, validate required information
+                            and route them for authorized approval.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I want to request 3 days of annual leave.">
+                            Demonstrate
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">HR</span>
+
+                        <h3>Employee Documents</h3>
+
+                        <p>
+                            Assist employees with approved document and policy requests.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I need an employee document.">
+                            Ask AI
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">HR</span>
+
+                        <h3>Attendance</h3>
+
+                        <p>
+                            Potentially answer approved attendance questions and
+                            route exceptions to HR.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I have an attendance issue.">
+                            Ask AI
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">HR</span>
+
+                        <h3>Onboarding</h3>
+
+                        <p>
+                            Coordinate approved onboarding tasks across departments.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="What is the employee onboarding process?">
+                            Ask AI
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 FINANCE
+            ====================================================== -->
+
+            <section class="page" id="page-finance">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">BUSINESS FUNCTION</div>
+                        <h1>Finance Automation</h1>
+                        <p>
+                            Potential AI-assisted finance workflows.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="function-grid">
+
+                    <div class="function-card">
+
+                        <span class="function-tag">FINANCE</span>
+
+                        <h3>Expense Claims</h3>
+
+                        <p>
+                            Collect claim information, identify missing documentation
+                            and route the request for approval.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I want to submit an expense claim.">
+                            Demonstrate
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">FINANCE</span>
+
+                        <h3>Invoice Processing</h3>
+
+                        <p>
+                            Extract invoice information and prepare structured data
+                            for finance review.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-page="documents">
+                            Document Demo
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">FINANCE</span>
+
+                        <h3>Financial Reports</h3>
+
+                        <p>
+                            Generate management summaries from approved financial data.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-page="reports">
+                            Reports
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 SALES
+            ====================================================== -->
+
+            <section class="page" id="page-sales">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">BUSINESS FUNCTION</div>
+                        <h1>Sales & CRM</h1>
+                        <p>
+                            Potential AI assistance for customer and sales workflows.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="function-grid">
+
+                    <div class="function-card">
+
+                        <span class="function-tag">SALES</span>
+
+                        <h3>Customer Enquiries</h3>
+
+                        <p>
+                            Classify enquiries and route them to the appropriate sales staff.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I have a customer enquiry.">
+                            Ask AI
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">CRM</span>
+
+                        <h3>Lead Routing</h3>
+
+                        <p>
+                            Potentially classify and route new customer opportunities.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I need help with a customer lead.">
+                            Ask AI
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">REPORTING</span>
+
+                        <h3>Sales Reports</h3>
+
+                        <p>
+                            Prepare management summaries from approved CRM information.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-page="reports">
+                            Reports
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 IT
+            ====================================================== -->
+
+            <section class="page" id="page-it">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">BUSINESS FUNCTION</div>
+                        <h1>IT Service Desk</h1>
+                        <p>
+                            Potential AI-assisted IT support and request routing.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="function-grid">
+
+                    <div class="function-card">
+
+                        <span class="function-tag">IT</span>
+
+                        <h3>Password & Access</h3>
+
+                        <p>
+                            Identify access issues and guide users through approved procedures.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I need help with my password.">
+                            Demonstrate
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">IT</span>
+
+                        <h3>IT Requests</h3>
+
+                        <p>
+                            Classify hardware, software and connectivity requests.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I need to report an IT problem.">
+                            Ask AI
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">IT</span>
+
+                        <h3>Knowledge Base</h3>
+
+                        <p>
+                            Provide approved answers without requiring employees to contact IT.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="My laptop cannot connect to Wi-Fi.">
+                            Ask AI
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 OPERATIONS
+            ====================================================== -->
+
+            <section class="page" id="page-operations">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">BUSINESS FUNCTION</div>
+                        <h1>Operations Intelligence</h1>
+                        <p>
+                            Potential AI assistance for operational coordination and reporting.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="function-grid">
+
+                    <div class="function-card">
+
+                        <span class="function-tag">OPERATIONS</span>
+
+                        <h3>Operational Requests</h3>
+
+                        <p>
+                            Classify operational requests and route them to the responsible team.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I need to report an operational issue.">
+                            Demonstrate
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">SAFETY</span>
+
+                        <h3>Safety Reporting</h3>
+
+                        <p>
+                            Capture safety information and route incidents for human review.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-question="I need to report a safety incident.">
+                            Ask AI
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">PRODUCTION</span>
+
+                        <h3>Production Reporting</h3>
+
+                        <p>
+                            Analyze approved operational data and prepare management summaries.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-page="reports">
+                            Reports
+                        </button>
+
+                    </div>
+
+
+                    <div class="function-card">
+
+                        <span class="function-tag">DOCUMENT CONTROL</span>
+
+                        <h3>Document Processing</h3>
+
+                        <p>
+                            Support Aqeel Ahmed's document-control workflows through
+                            extraction and structured reporting.
+                        </p>
+
+                        <button class="secondary-button"
+                                data-page="documents">
+                            Document Demo
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 SOCIAL
+            ====================================================== -->
+
+            <section class="page" id="page-social">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">SOCIAL MEDIA INTELLIGENCE</div>
+                        <h1>Social Media Analytics</h1>
+                        <p>
+                            Sample dashboard demonstrating how verified social platform
+                            data could be analyzed and reported.
+                        </p>
+                    </div>
+
+                    <button class="primary-button" id="socialReportButton">
+                        Generate Monthly Report
+                    </button>
+
+                </div>
+
+
+                <div class="demo-notice">
+                    <strong>Sample Data</strong>
+                    <span>
+                        These figures are fictional demonstration values and are not
+                        AKL's actual social media statistics.
+                    </span>
+                </div>
+
+
+                <div class="social-grid">
+
+                    <div class="social-card">
+
+                        <div class="social-platform">Instagram</div>
+
+                        <strong>25,420</strong>
+                        <span>Followers</span>
+
+                        <div class="social-growth">+8.2%</div>
+
+                    </div>
+
+
+                    <div class="social-card">
+
+                        <div class="social-platform">TikTok</div>
+
+                        <strong>18,730</strong>
+                        <span>Followers</span>
+
+                        <div class="social-growth">+14.5%</div>
+
+                    </div>
+
+
+                    <div class="social-card">
+
+                        <div class="social-platform">Facebook</div>
+
+                        <strong>12,820</strong>
+                        <span>Followers</span>
+
+                        <div class="social-growth">+3.7%</div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-grid">
+
+                    <div class="panel chart-panel">
+
+                        <div class="panel-header">
+                            <div>
+                                <div class="eyebrow">SAMPLE ANALYTICS</div>
+                                <h2>Follower Growth</h2>
+                            </div>
+                        </div>
+
+                        <div class="bar-chart">
+
+                            <div class="bar-row">
+                                <span>Instagram</span>
+                                <div class="bar">
+                                    <i style="width: 65%"></i>
+                                </div>
+                                <strong>8.2%</strong>
+                            </div>
+
+                            <div class="bar-row">
+                                <span>TikTok</span>
+                                <div class="bar">
+                                    <i style="width: 90%"></i>
+                                </div>
+                                <strong>14.5%</strong>
+                            </div>
+
+                            <div class="bar-row">
+                                <span>Facebook</span>
+                                <div class="bar">
+                                    <i style="width: 35%"></i>
+                                </div>
+                                <strong>3.7%</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div class="eyebrow">AI SUMMARY</div>
+
+                        <h2>Sample Insight</h2>
+
+                        <div class="insight-box">
+
+                            <strong>Strongest sample growth: TikTok</strong>
+
+                            <p>
+                                TikTok shows the strongest sample follower growth.
+                                In a production environment, verified platform data
+                                could be analyzed to identify high-performing content,
+                                engagement trends and audience behavior.
+                            </p>
+
+                        </div>
+
+                        <div class="report-actions">
+
+                            <button class="secondary-button" id="socialExport">
+                                Export Summary
+                            </button>
+
+                            <button class="primary-button" id="socialReportButton2">
+                                Generate Report
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 NOTIFICATIONS
+            ====================================================== -->
+
+            <section class="page" id="page-notifications">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">COMMUNICATION</div>
+                        <h1>Notification Center</h1>
+                        <p>
+                            Demonstration of how workflow notifications could be presented.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="notification-list" id="notificationList"></div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 AUDIT
+            ====================================================== -->
+
+            <section class="page" id="page-audit">
+
+                <div class="page-heading">
+
+                    <div>
+                        <div class="eyebrow">GOVERNANCE</div>
+                        <h1>Audit Log</h1>
+                        <p>
+                            Track important workflow events and authorized actions.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Reference</th>
+                                    <th>Event</th>
+                                    <th>User</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="auditTable"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <div class="security-grid">
+
+                    <div class="security-item">
+                        <strong>Role-based Access</strong>
+                        <span>Users only access information permitted to their role.</span>
+                    </div>
+
+                    <div class="security-item">
+                        <strong>Human Approval</strong>
+                        <span>Sensitive business decisions remain with authorized staff.</span>
+                    </div>
+
+                    <div class="security-item">
+                        <strong>Auditability</strong>
+                        <span>Important workflow events can be recorded for review.</span>
+                    </div>
+
+                    <div class="security-item">
+                        <strong>Controlled Integrations</strong>
+                        <span>ERP, CRM and HR connections require approved APIs and permissions.</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
         </div>
 
-        <div class="section-block">
-          <div class="section-heading">
-            <h2>How the platform works</h2>
-            <span class="section-tag">Conceptual workflow</span>
-          </div>
-          <div class="workflow-strip" id="dashboard-workflow"></div>
-        </div>
 
-        <div class="section-block">
-          <div class="section-heading">
-            <h2>ERP / CRM Integration</h2>
-            <span class="section-tag">Conceptual</span>
-          </div>
-          <div class="integration-diagram">
-            <div class="integration-core">AI Platform</div>
-            <div class="integration-targets" id="integration-targets"></div>
-          </div>
-          <p class="notice">Integration shown for conceptual demonstration only. Production connectivity requires approved APIs, credentials, permissions, vendor documentation and security review.</p>
-        </div>
+        <!-- FOOTER -->
 
-        <div class="section-block">
-          <div class="section-heading">
-            <h2>Security &amp; Governance</h2>
-            <span class="section-tag">Conceptual</span>
-          </div>
-          <div class="security-grid" id="security-grid"></div>
-          <p class="notice">Production security architecture must be designed after reviewing AKL's existing infrastructure, identity system, ERP/CRM environment, network architecture and security policies.</p>
-        </div>
+        <footer class="footer">
 
-        <div class="section-block">
-          <div class="section-heading">
-            <h2>Confidentiality</h2>
-          </div>
-          <div class="confidentiality-card">
-            <p><strong>AI should only access information the requesting user is authorized to access.</strong></p>
-            <p>Employees without corporate email could potentially be authenticated through an employee ID, company SSO, the existing HR identity system, or another approved authentication method. This prototype does not implement real authentication.</p>
-          </div>
-        </div>
+            <span>
+                AKL AI Solutions
+            </span>
 
-      </section>
+            <span>
+                Prototype prepared by Nafidah Mauna · AI Specialist
+            </span>
 
-      <!-- AI ASSISTANT -->
-      <section class="view" id="view-assistant">
-        <div class="page-header">
-          <h1>Al Khaznah AI Assistant</h1>
-          <span class="section-tag">Prototype</span>
-          <span class="status-pill small"><span class="status-dot"></span>Available</span>
-          <span class="status-pill small role-pill" id="assistant-role-pill">Employee</span>
-        </div>
-        <p class="page-desc">Ask a sample question below. Responses are generated from a demonstration knowledge base only — no production system is connected.</p>
+            <span>
+                Demonstration Environment
+            </span>
 
-        <div class="assistant-layout">
-          <div class="chat-panel">
-            <div class="chat-messages" id="chat-messages"></div>
-            <div class="suggested-row" id="suggested-row"></div>
-            <form class="chat-input-row" id="chat-form">
-              <input type="text" id="chat-input" placeholder="Type your question…" autocomplete="off">
-              <button type="submit" class="btn btn-primary">Send</button>
-            </form>
-          </div>
-          <aside class="kb-panel">
-            <h3>Sample Knowledge Base</h3>
-            <span class="kb-tag">Demonstration only</span>
-            <ul class="kb-list" id="kb-list"></ul>
-            <p class="notice">These are generic sample policies for demonstration. They are not AKL's actual policies.</p>
-          </aside>
-        </div>
-      </section>
-
-      <!-- DOCUMENTS -->
-      <section class="view" id="view-documents">
-        <div class="page-header"><h1>Document Intelligence</h1></div>
-        <p class="page-desc">Proposed workflow for extracting information from approved business documents and converting it into structured information.</p>
-
-        <div class="steps-row" id="doc-steps"></div>
-
-        <div class="doc-demo-card">
-          <h3>Upload Document</h3>
-          <div class="upload-row">
-            <input type="file" id="doc-file-input">
-            <label for="doc-file-input" class="btn btn-secondary">Choose File</label>
-            <span id="doc-file-name" class="doc-file-name">No file selected</span>
-          </div>
-
-          <div id="doc-file-received" class="doc-file-card hidden">
-            <span class="doc-file-title">Financial_Report_Demo.pdf</span>
-            <span class="doc-file-meta">100 pages · SAMPLE DOCUMENT</span>
-          </div>
-
-          <div id="doc-processing" class="processing-list hidden"></div>
-
-          <div id="doc-actions" class="doc-actions hidden">
-            <button class="btn btn-secondary" data-action="view-data">View Extracted Data</button>
-            <button class="btn btn-secondary" data-action="excel">Generate Excel</button>
-            <button class="btn btn-secondary" data-action="charts">Generate Charts</button>
-            <button class="btn btn-secondary" data-action="pdf">Generate PDF Report</button>
-            <button class="btn btn-secondary" data-action="ppt">Generate PowerPoint</button>
-          </div>
-
-          <div id="doc-table-wrap" class="doc-table-wrap hidden">
-            <p class="notice">Sample extracted data — not real company information.</p>
-            <table class="doc-table">
-              <thead><tr><th>Date</th><th>Document Ref.</th><th>Department</th><th>Category</th><th>Amount</th><th>Status</th></tr></thead>
-              <tbody id="doc-table-body"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- REPORTS -->
-      <section class="view" id="view-reports">
-        <div class="page-header"><h1>Reports &amp; Analytics</h1></div>
-        <p class="page-desc">Sample capability overview. All figures below are demonstration data.</p>
-
-        <div class="report-cap-grid" id="report-cap-grid"></div>
-
-        <div class="chart-grid">
-          <div class="chart-card">
-            <h3>Department Requests</h3>
-            <span class="sample-tag">Sample data</span>
-            <div class="bar-chart" id="chart-dept"></div>
-          </div>
-          <div class="chart-card">
-            <h3>Monthly Activity</h3>
-            <span class="sample-tag">Sample data</span>
-            <div class="line-chart" id="chart-monthly"></div>
-          </div>
-          <div class="chart-card">
-            <h3>Document Processing Volume</h3>
-            <span class="sample-tag">Sample data</span>
-            <div class="bar-chart" id="chart-docs"></div>
-          </div>
-          <div class="chart-card">
-            <h3>Social Media Growth</h3>
-            <span class="sample-tag">Sample data</span>
-            <div class="bar-chart" id="chart-social"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- BUSINESS FUNCTION MODULE PAGES (generated) -->
-      <section class="view" id="view-hr"></section>
-      <section class="view" id="view-finance"></section>
-      <section class="view" id="view-sales"></section>
-      <section class="view" id="view-it"></section>
-      <section class="view" id="view-operations"></section>
-
-      <!-- SOCIAL MEDIA -->
-      <section class="view" id="view-social">
-        <div class="page-header"><h1>Social Media Intelligence</h1></div>
-        <p class="page-desc">Sample data shown for demonstration only — not actual AKL statistics.</p>
-
-        <div class="social-cards" id="social-cards"></div>
-
-        <div class="chart-grid">
-          <div class="chart-card">
-            <h3>Follower Growth</h3>
-            <span class="sample-tag">Sample data</span>
-            <div class="bar-chart" id="chart-followers"></div>
-          </div>
-          <div class="chart-card">
-            <h3>Engagement Comparison</h3>
-            <span class="sample-tag">Sample data</span>
-            <div class="bar-chart" id="chart-engagement"></div>
-          </div>
-          <div class="chart-card">
-            <h3>Platform Performance</h3>
-            <span class="sample-tag">Sample data</span>
-            <div class="bar-chart" id="chart-performance"></div>
-          </div>
-        </div>
-
-        <div class="ai-summary-card">
-          <span class="section-tag">AI Summary</span>
-          <p>TikTok recorded the strongest sample follower growth during the reporting period. In a production environment, verified platform data could be analyzed to identify high-performing content and trends.</p>
-        </div>
-
-        <div class="doc-actions">
-          <button class="btn btn-secondary" data-toast="Monthly report generated (demo).">Generate Monthly Report</button>
-          <button class="btn btn-secondary" data-toast="Summary exported (demo).">Export Summary</button>
-          <button class="btn btn-secondary" data-nav="reports">View Analytics</button>
-        </div>
-      </section>
+        </footer>
 
     </main>
 
-    <footer class="app-footer">
-      <span>AKL AI Solutions</span>
-      <span class="footer-sep">·</span>
-      <span>Prototype prepared by Nafidah Mauna · AI Specialist</span>
-      <span class="footer-sep">·</span>
-      <span>Prototype / Demonstration Only</span>
-    </footer>
-
-  </div>
 </div>
 
-<div class="toast" id="toast"></div>
+
+<!-- MODAL -->
+
+<div class="modal-overlay hidden" id="modalOverlay">
+
+    <div class="modal">
+
+        <button class="modal-close" id="modalClose">×</button>
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
 
 <script src="script.js"></script>
+
 </body>
 </html>
