@@ -3,87 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Al Khaznah Tannery — Employee Policy Assistant</title>
+<title>AKL AI Solutions — AI Automation & Business Intelligence Portal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
+<div class="app-shell">
 
-  <header class="header">
-    <div class="header-brand">
-      <img src="assets/akl-logo.png" alt="Al Khaznah Leathers logo" class="header-logo">
-      <div class="header-text">
-        <h1>Al Khaznah Tannery — Employee Policy Assistant</h1>
-        <p id="headerStats" class="header-stats"></p>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="assets/akl-logo.png" alt="Al Khaznah Leathers logo" class="brand-logo">
+      <div class="brand-text">
+        <span class="brand-line1">AL KHAZNAH LEATHERS</span>
+        <span class="brand-line2">AI Solutions Portal</span>
       </div>
     </div>
-    <span class="prototype-pill">Prototype / Demonstration Only</span>
-  </header>
 
-  <nav class="view-tabs" role="tablist">
-    <button type="button" class="view-tab is-active" data-view="assistant" role="tab" aria-selected="true">AI Assistant</button>
-    <button type="button" class="view-tab" data-view="directory" role="tab" aria-selected="false">Policy Directory</button>
-    <button type="button" class="view-tab" data-view="departments" role="tab" aria-selected="false">Departments</button>
-  </nav>
+    <nav class="sidebar-nav">
+      <div class="nav-group-label">Overview</div>
+      <button class="nav-item active" data-section="dashboard">
+        <span class="nav-dot"></span>Dashboard
+      </button>
+      <button class="nav-item" data-section="assistant">
+        <span class="nav-dot"></span>AI Assistant
+      </button>
+      <button class="nav-item" data-section="documents">
+        <span class="nav-dot"></span>Documents
+      </button>
+      <button class="nav-item" data-section="reports">
+        <span class="nav-dot"></span>Reports &amp; Analytics
+      </button>
 
-  <main class="main">
+      <div class="nav-group-label">Business Functions</div>
+      <button class="nav-item" data-section="hr">
+        <span class="nav-dot"></span>HR &amp; Employee
+      </button>
+      <button class="nav-item" data-section="finance">
+        <span class="nav-dot"></span>Finance
+      </button>
+      <button class="nav-item" data-section="sales">
+        <span class="nav-dot"></span>Sales &amp; CRM
+      </button>
+      <button class="nav-item" data-section="it">
+        <span class="nav-dot"></span>IT Service Desk
+      </button>
+      <button class="nav-item" data-section="operations">
+        <span class="nav-dot"></span>Operations
+      </button>
+      <button class="nav-item" data-section="social">
+        <span class="nav-dot"></span>Social Media
+      </button>
+    </nav>
 
-    <!-- ASSISTANT VIEW -->
-    <section class="view" data-view-panel="assistant">
-      <div class="chat-card">
-        <div class="chat-window" id="chatWindow" aria-live="polite"></div>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="user-initials">NM</div>
+        <div class="user-info">
+          <span class="user-name">Nafidah Mauna</span>
+          <span class="user-role">AI Specialist</span>
+        </div>
+      </div>
+    </div>
+  </aside>
 
-        <div class="suggestions" id="suggestionButtons">
-          <button type="button" class="chip" data-question="How many annual leave days do I get?">Annual Leave</button>
-          <button type="button" class="chip" data-question="What is the sick leave policy?">Sick Leave</button>
-          <button type="button" class="chip" data-question="What are the working hours?">Working Hours</button>
-          <button type="button" class="chip" data-question="How do I submit an expense claim?">Expense Claim</button>
-          <button type="button" class="chip" data-question="I forgot my password">Password Reset</button>
-          <button type="button" class="chip" data-question="Do I need PPE on the tannery floor?">PPE &amp; Safety</button>
-          <button type="button" class="chip" data-question="What's my travel allowance?">Off-Topic Example</button>
-          <button type="button" class="chip" data-question="askjdla 190210 !!!">Random Text</button>
+  <!-- MAIN -->
+  <div class="main-column">
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <img src="assets/akl-logo.png" alt="Al Khaznah Leathers" class="topbar-logo">
+        <div class="topbar-text">
+          <span class="topbar-company">AL KHAZNAH LEATHERS</span>
+          <span class="topbar-sub">AI Solutions &amp; Automation</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <select id="role-select" class="role-select" title="Simulate a role to preview access restrictions">
+          <option value="employee">Viewing as: Employee</option>
+          <option value="manager">Viewing as: Manager</option>
+          <option value="hr">Viewing as: HR</option>
+          <option value="finance">Viewing as: Finance</option>
+          <option value="it">Viewing as: IT</option>
+          <option value="sales">Viewing as: Sales</option>
+          <option value="operations">Viewing as: Operations</option>
+          <option value="admin">Viewing as: Management (CEO/CFO)</option>
+        </select>
+        <span class="status-pill"><span class="status-dot"></span>Prototype Environment</span>
+        <div class="user-initials small">NM</div>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+
+      <!-- DASHBOARD -->
+      <section class="view active" id="view-dashboard">
+
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">AI Solutions &amp; Automation</span>
+            <h1>Centralized AI for smarter business operations.</h1>
+            <p class="hero-desc">A proposed AI platform designed to assist employees, automate repetitive processes, analyze documents, generate reports and connect with approved business systems.</p>
+            <button class="btn btn-primary" data-nav="assistant">Open AI Assistant</button>
+          </div>
         </div>
 
-        <form class="chat-form" id="chatForm">
-          <input type="text" id="chatInput" placeholder="Ask about leave, expenses, IT, safety…" autocomplete="off">
-          <button type="button" id="clearBtn" class="btn btn-secondary">Clear</button>
-          <button type="submit" id="sendBtn" class="btn btn-primary">Send</button>
-        </form>
-      </div>
+        <div class="role-banner">
+          <strong>Tip for the demo:</strong> use "Viewing as" in the top right to switch roles — the sidebar and the AI Assistant's answers change based on the selected role, simulating department-level access restrictions. This is a conceptual demonstration only, not a real authentication system.
+        </div>
 
-      <p class="notice">Sample knowledge base — demonstration only. Answers are generated from a fictional sample policy set for this prototype, not AKL's actual HR, Finance, IT or Operations policies.</p>
-    </section>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-value">09</span>
+            <span class="kpi-label">AI Modules</span>
+            <span class="kpi-note">Proposed capabilities</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-value">08</span>
+            <span class="kpi-label">Automation Areas</span>
+            <span class="kpi-note">Business functions</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-value">04</span>
+            <span class="kpi-label">Report Types</span>
+            <span class="kpi-note">PDF · Excel · PPT · Charts</span>
+          </div>
+          <div class="kpi-card">
+            <span class="kpi-value">ERP</span>
+            <span class="kpi-label">Integration Ready</span>
+            <span class="kpi-note">Subject to system/API approval</span>
+          </div>
+        </div>
 
-    <!-- DIRECTORY VIEW -->
-    <section class="view is-hidden" data-view-panel="directory">
-      <div class="directory-toolbar">
-        <input type="text" id="directorySearch" placeholder="Search all sample policies…">
-      </div>
-      <p id="directoryCount" class="directory-count"></p>
-      <div id="directoryGroups" class="directory-groups"></div>
-      <p id="directoryEmpty" class="directory-empty is-hidden">No policies match your search.</p>
-    </section>
+        <div class="section-block">
+          <div class="section-heading">
+            <h2>AI Modules</h2>
+            <span class="section-tag">Proposed</span>
+          </div>
+          <div class="module-grid" id="module-grid"></div>
+        </div>
 
-    <!-- DEPARTMENTS VIEW -->
-    <section class="view is-hidden" data-view-panel="departments">
-      <p class="page-desc">Which department a request is routed to when there's no exact policy match.</p>
-      <div id="departmentGrid" class="department-grid"></div>
-    </section>
+        <div class="section-block">
+          <div class="section-heading">
+            <h2>How the platform works</h2>
+            <span class="section-tag">Conceptual workflow</span>
+          </div>
+          <div class="workflow-strip" id="dashboard-workflow"></div>
+        </div>
 
-  </main>
+        <div class="section-block">
+          <div class="section-heading">
+            <h2>ERP / CRM Integration</h2>
+            <span class="section-tag">Conceptual</span>
+          </div>
+          <div class="integration-diagram">
+            <div class="integration-core">AI Platform</div>
+            <div class="integration-targets" id="integration-targets"></div>
+          </div>
+          <p class="notice">Integration shown for conceptual demonstration only. Production connectivity requires approved APIs, credentials, permissions, vendor documentation and security review.</p>
+        </div>
 
-  <footer class="footer">
-    <span>AKL Employee Policy Assistant</span>
-    <span class="sep">·</span>
-    <span>Prototype prepared by Nafidah Mauna · AI Specialist</span>
-    <span class="sep">·</span>
-    <span>Prototype / Demonstration Only</span>
-  </footer>
+        <div class="section-block">
+          <div class="section-heading">
+            <h2>Security &amp; Governance</h2>
+            <span class="section-tag">Conceptual</span>
+          </div>
+          <div class="security-grid" id="security-grid"></div>
+          <p class="notice">Production security architecture must be designed after reviewing AKL's existing infrastructure, identity system, ERP/CRM environment, network architecture and security policies.</p>
+        </div>
 
+        <div class="section-block">
+          <div class="section-heading">
+            <h2>Confidentiality</h2>
+          </div>
+          <div class="confidentiality-card">
+            <p><strong>AI should only access information the requesting user is authorized to access.</strong></p>
+            <p>Employees without corporate email could potentially be authenticated through an employee ID, company SSO, the existing HR identity system, or another approved authentication method. This prototype does not implement real authentication.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- AI ASSISTANT -->
+      <section class="view" id="view-assistant">
+        <div class="page-header">
+          <h1>Al Khaznah AI Assistant</h1>
+          <span class="section-tag">Prototype</span>
+          <span class="status-pill small"><span class="status-dot"></span>Available</span>
+          <span class="status-pill small role-pill" id="assistant-role-pill">Employee</span>
+        </div>
+        <p class="page-desc">Ask a sample question below. Responses are generated from a demonstration knowledge base only — no production system is connected.</p>
+
+        <div class="assistant-layout">
+          <div class="chat-panel">
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="suggested-row" id="suggested-row"></div>
+            <form class="chat-input-row" id="chat-form">
+              <input type="text" id="chat-input" placeholder="Type your question…" autocomplete="off">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+          </div>
+          <aside class="kb-panel">
+            <h3>Sample Knowledge Base</h3>
+            <span class="kb-tag">Demonstration only</span>
+            <ul class="kb-list" id="kb-list"></ul>
+            <p class="notice">These are generic sample policies for demonstration. They are not AKL's actual policies.</p>
+          </aside>
+        </div>
+      </section>
+
+      <!-- DOCUMENTS -->
+      <section class="view" id="view-documents">
+        <div class="page-header"><h1>Document Intelligence</h1></div>
+        <p class="page-desc">Proposed workflow for extracting information from approved business documents and converting it into structured information.</p>
+
+        <div class="steps-row" id="doc-steps"></div>
+
+        <div class="doc-demo-card">
+          <h3>Upload Document</h3>
+          <div class="upload-row">
+            <input type="file" id="doc-file-input">
+            <label for="doc-file-input" class="btn btn-secondary">Choose File</label>
+            <span id="doc-file-name" class="doc-file-name">No file selected</span>
+          </div>
+
+          <div id="doc-file-received" class="doc-file-card hidden">
+            <span class="doc-file-title">Financial_Report_Demo.pdf</span>
+            <span class="doc-file-meta">100 pages · SAMPLE DOCUMENT</span>
+          </div>
+
+          <div id="doc-processing" class="processing-list hidden"></div>
+
+          <div id="doc-actions" class="doc-actions hidden">
+            <button class="btn btn-secondary" data-action="view-data">View Extracted Data</button>
+            <button class="btn btn-secondary" data-action="excel">Generate Excel</button>
+            <button class="btn btn-secondary" data-action="charts">Generate Charts</button>
+            <button class="btn btn-secondary" data-action="pdf">Generate PDF Report</button>
+            <button class="btn btn-secondary" data-action="ppt">Generate PowerPoint</button>
+          </div>
+
+          <div id="doc-table-wrap" class="doc-table-wrap hidden">
+            <p class="notice">Sample extracted data — not real company information.</p>
+            <table class="doc-table">
+              <thead><tr><th>Date</th><th>Document Ref.</th><th>Department</th><th>Category</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody id="doc-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- REPORTS -->
+      <section class="view" id="view-reports">
+        <div class="page-header"><h1>Reports &amp; Analytics</h1></div>
+        <p class="page-desc">Sample capability overview. All figures below are demonstration data.</p>
+
+        <div class="report-cap-grid" id="report-cap-grid"></div>
+
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>Department Requests</h3>
+            <span class="sample-tag">Sample data</span>
+            <div class="bar-chart" id="chart-dept"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Monthly Activity</h3>
+            <span class="sample-tag">Sample data</span>
+            <div class="line-chart" id="chart-monthly"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Document Processing Volume</h3>
+            <span class="sample-tag">Sample data</span>
+            <div class="bar-chart" id="chart-docs"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Social Media Growth</h3>
+            <span class="sample-tag">Sample data</span>
+            <div class="bar-chart" id="chart-social"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BUSINESS FUNCTION MODULE PAGES (generated) -->
+      <section class="view" id="view-hr"></section>
+      <section class="view" id="view-finance"></section>
+      <section class="view" id="view-sales"></section>
+      <section class="view" id="view-it"></section>
+      <section class="view" id="view-operations"></section>
+
+      <!-- SOCIAL MEDIA -->
+      <section class="view" id="view-social">
+        <div class="page-header"><h1>Social Media Intelligence</h1></div>
+        <p class="page-desc">Sample data shown for demonstration only — not actual AKL statistics.</p>
+
+        <div class="social-cards" id="social-cards"></div>
+
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>Follower Growth</h3>
+            <span class="sample-tag">Sample data</span>
+            <div class="bar-chart" id="chart-followers"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Engagement Comparison</h3>
+            <span class="sample-tag">Sample data</span>
+            <div class="bar-chart" id="chart-engagement"></div>
+          </div>
+          <div class="chart-card">
+            <h3>Platform Performance</h3>
+            <span class="sample-tag">Sample data</span>
+            <div class="bar-chart" id="chart-performance"></div>
+          </div>
+        </div>
+
+        <div class="ai-summary-card">
+          <span class="section-tag">AI Summary</span>
+          <p>TikTok recorded the strongest sample follower growth during the reporting period. In a production environment, verified platform data could be analyzed to identify high-performing content and trends.</p>
+        </div>
+
+        <div class="doc-actions">
+          <button class="btn btn-secondary" data-toast="Monthly report generated (demo).">Generate Monthly Report</button>
+          <button class="btn btn-secondary" data-toast="Summary exported (demo).">Export Summary</button>
+          <button class="btn btn-secondary" data-nav="reports">View Analytics</button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="app-footer">
+      <span>AKL AI Solutions</span>
+      <span class="footer-sep">·</span>
+      <span>Prototype prepared by Nafidah Mauna · AI Specialist</span>
+      <span class="footer-sep">·</span>
+      <span>Prototype / Demonstration Only</span>
+    </footer>
+
+  </div>
 </div>
+
+<div class="toast" id="toast"></div>
 
 <script src="script.js"></script>
 </body>
