@@ -172,7 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
       key:'leave',
       title:'Annual Leave',
       keywords:['leave','vacation','annual leave','time off','holiday'],
-      answer:"Based on the sample policy, annual leave requests should be submitted through the approved HR process. If the request requires approval, it will be routed to the employee's designated manager. This is a demonstration workflow only."
+      answer:"Based on the sample policy, annual leave requests should be submitted through the approved HR process. If the request requires approval, it will be routed to the employee's designated manager. This is a demonstration workflow only.",
+      action:{label:'Leave Request', prefix:'LV', dept:'HR / Line Manager'}
     },
     {
       key:'hours',
@@ -184,13 +185,15 @@ document.addEventListener('DOMContentLoaded', () => {
       key:'expense',
       title:'Expense Claims',
       keywords:['expense','reimbursement','claim','receipt'],
-      answer:"This appears to be a procurement/finance-related request. The production system could validate the request, identify the appropriate workflow and route it to the authorized approver."
+      answer:"This appears to be a procurement/finance-related request. The production system could validate the request, identify the appropriate workflow and route it to the authorized approver.",
+      action:{label:'Expense Claim', prefix:'EX', dept:'Finance'}
     },
     {
       key:'it',
       title:'IT Support',
       keywords:['it issue','laptop','wifi','password','printer','vpn','email not working','it request'],
-      answer:"This request appears to belong to IT. Please submit an IT service request through the approved company process. In a production system, the AI could create and route the request automatically."
+      answer:"This request appears to belong to IT. Please submit an IT service request through the approved company process. In a production system, the AI could create and route the request automatically.",
+      action:{label:'IT Service Request', prefix:'IT', dept:'IT Service Desk'}
     },
     {
       key:'purchase',
@@ -198,7 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
       keywords:['purchase','procurement','buy','vendor','po','purchase order'],
       answer:"This appears to be a procurement/finance-related request. The production system could validate the request, identify the appropriate workflow and route it to the authorized approver.",
       restrictedRoles:['finance','manager','operations','admin'],
-      restrictedNote:"Purchase order details and vendor spend are treated as finance-restricted information in this prototype."
+      restrictedNote:"Purchase order details and vendor spend are treated as finance-restricted information in this prototype.",
+      action:{label:'Purchase Request', prefix:'PR', dept:'Finance / Procurement'}
     },
     {
       key:'payroll',
@@ -212,7 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
       key:'documents',
       title:'Employee Documents',
       keywords:['salary certificate','employment letter','payslip','document request','certificate'],
-      answer:"Based on the sample policy, employee document requests are routed through HR for verification and issuance. This is a demonstration workflow only."
+      answer:"Based on the sample policy, employee document requests are routed through HR for verification and issuance. This is a demonstration workflow only.",
+      action:{label:'Document Request', prefix:'DR', dept:'HR'}
     },
   ];
 
@@ -262,39 +267,51 @@ document.addEventListener('DOMContentLoaded', () => {
     {dept:'Operations', words:['production','tannery','batch','quality','warehouse','shipment']},
   ];
 
+  function generateRef(prefix){
+    const num = Math.floor(1000 + Math.random() * 9000);
+    return `${prefix}-${num}`;
+  }
+
   function findAnswer(userText){
     const text = userText.toLowerCase();
 
     // report/management keyword — special case, not tied to a KB topic
     if (/\breport\b|\bdashboard\b|\banalytics\b/.test(text)){
-      return "This appears to be a management reporting request. The production system could generate an executive summary from approved data sources. You can preview sample report types under Reports & Analytics.";
+      return {text:"This appears to be a management reporting request. The production system could generate an executive summary from approved data sources. You can preview sample report types under Reports & Analytics.", action:null};
     }
 
     for (const item of knowledgeBase){
       if (item.keywords.some(k => text.includes(k))){
         if (item.restrictedRoles && !item.restrictedRoles.includes(currentRole)){
-          return `I can see this is a ${item.title} question, but that information is restricted based on your current role ("${getRole().label}"). ${item.restrictedNote} Please contact the authorized department directly, or switch roles above to preview what an authorized user would see.`;
+          return {text:`I can see this is a ${item.title} question, but that information is restricted based on your current role ("${getRole().label}"). ${item.restrictedNote} Please contact the authorized department directly, or switch roles above to preview what an authorized user would see.`, action:null};
         }
-        return item.answer;
+        return {text:item.answer, action:item.action || null};
       }
     }
 
     // guess department for unmatched requests
     for (const g of departmentGuess){
       if (g.words.some(w => text.includes(w))){
-        return `I don't have enough approved information to answer that accurately. This appears to be an ${g.dept} matter. Please contact ${g.dept}.`;
+        return {text:`I don't have enough approved information to answer that accurately. This appears to be an ${g.dept} matter. Please contact ${g.dept}.`, action:null};
       }
     }
 
-    return "I don't have approved information for that question. Please contact the appropriate department or use an approved company information source.";
+    return {text:"I don't have approved information for that question. Please contact the appropriate department or use an approved company information source.", action:null};
   }
 
   function handleUserMessage(text){
     if (!text.trim()) return;
     addMessage(text, 'user');
     chatInput.value = '';
+    const result = findAnswer(text);
     setTimeout(() => {
-      addMessage(findAnswer(text), 'assistant');
+      addMessage(result.text, 'assistant');
+      if (result.action){
+        setTimeout(() => {
+          const ref = generateRef(result.action.prefix);
+          addMessage(`Demo request created — Reference #${ref}. Type: ${result.action.label}. Status: Routed to ${result.action.dept}. (Prototype simulation only — no real system connected.)`, 'assistant');
+        }, 1000);
+      }
     }, 400);
   }
 
