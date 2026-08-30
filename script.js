@@ -11,6 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const navItems = document.querySelectorAll('.nav-item');
   const views = document.querySelectorAll('.view');
 
+  const ROLES = [
+    {id:'employee',   label:'Employee',                 sections:['dashboard','assistant','hr']},
+    {id:'manager',    label:'Manager',                  sections:['dashboard','assistant','hr','documents','reports']},
+    {id:'hr',         label:'HR',                       sections:['dashboard','assistant','hr','documents','reports']},
+    {id:'finance',    label:'Finance',                  sections:['dashboard','assistant','finance','documents','reports']},
+    {id:'it',         label:'IT',                       sections:['dashboard','assistant','it','documents']},
+    {id:'sales',      label:'Sales',                    sections:['dashboard','assistant','sales','reports']},
+    {id:'operations', label:'Operations',                sections:['dashboard','assistant','operations','reports']},
+    {id:'admin',      label:'Management (CEO/CFO)',      sections:['dashboard','assistant','documents','reports','hr','finance','sales','it','operations','social']},
+  ];
+  let currentRole = 'employee';
+  function getRole(){ return ROLES.find(r => r.id === currentRole); }
+  function sectionAllowed(section){ return getRole().sections.includes(section); }
+
   function goToSection(section){
     navItems.forEach(n => n.classList.toggle('active', n.dataset.section === section));
     views.forEach(v => v.classList.toggle('active', v.id === 'view-' + section));
@@ -18,12 +32,44 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({top:0, behavior:'smooth'});
   }
 
+  function attemptNav(section){
+    if (sectionAllowed(section)){
+      goToSection(section);
+    } else {
+      const sectionLabels = {dashboard:'Dashboard',assistant:'AI Assistant',documents:'Documents',reports:'Reports & Analytics',hr:'HR & Employee',finance:'Finance',sales:'Sales & CRM',it:'IT Service Desk',operations:'Operations',social:'Social Media'};
+      showToast(`Access restricted — ${sectionLabels[section] || section} isn't available for the "${getRole().label}" role in this prototype.`);
+    }
+  }
+
+  function applyRolePermissions(){
+    navItems.forEach(item => {
+      const allowed = sectionAllowed(item.dataset.section);
+      item.classList.toggle('nav-restricted', !allowed);
+    });
+    document.querySelectorAll('.module-card').forEach(card => {
+      const allowed = sectionAllowed(card.dataset.section);
+      card.classList.toggle('module-restricted', !allowed);
+    });
+    const activeItem = document.querySelector('.nav-item.active');
+    if (activeItem && !sectionAllowed(activeItem.dataset.section)){
+      goToSection('dashboard');
+    }
+    const rolePill = document.getElementById('assistant-role-pill');
+    if (rolePill) rolePill.textContent = getRole().label;
+  }
+
+  document.getElementById('role-select').addEventListener('change', e => {
+    currentRole = e.target.value;
+    applyRolePermissions();
+    showToast(`Now viewing as: ${getRole().label}`);
+  });
+
   navItems.forEach(item => {
-    item.addEventListener('click', () => goToSection(item.dataset.section));
+    item.addEventListener('click', () => attemptNav(item.dataset.section));
   });
 
   document.querySelectorAll('[data-nav]').forEach(el => {
-    el.addEventListener('click', () => goToSection(el.dataset.nav));
+    el.addEventListener('click', () => attemptNav(el.dataset.nav));
   });
 
   /* ---------------------------------------------------------
@@ -60,8 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
   modules.forEach(m => {
     const card = document.createElement('div');
     card.className = 'module-card';
+    card.dataset.section = m.section;
     card.innerHTML = `<h3>${m.name}</h3><p>${m.desc}</p><span class="module-explore">Explore</span>`;
-    card.addEventListener('click', () => goToSection(m.section));
+    card.addEventListener('click', () => attemptNav(m.section));
     moduleGrid.appendChild(card);
   });
 
@@ -149,7 +196,17 @@ document.addEventListener('DOMContentLoaded', () => {
       key:'purchase',
       title:'Purchase Requests',
       keywords:['purchase','procurement','buy','vendor','po','purchase order'],
-      answer:"This appears to be a procurement/finance-related request. The production system could validate the request, identify the appropriate workflow and route it to the authorized approver."
+      answer:"This appears to be a procurement/finance-related request. The production system could validate the request, identify the appropriate workflow and route it to the authorized approver.",
+      restrictedRoles:['finance','manager','operations','admin'],
+      restrictedNote:"Purchase order details and vendor spend are treated as finance-restricted information in this prototype."
+    },
+    {
+      key:'payroll',
+      title:'Salary & Payroll',
+      keywords:['salary','payroll','payslip','pay slip','compensation','bonus'],
+      answer:"Salary and payroll information would be retrieved directly from the approved HR/payroll system for the verified employee only.",
+      restrictedRoles:['hr','finance','admin'],
+      restrictedNote:"Salary and payroll data is confidential and restricted to HR, Finance and Management roles in this prototype."
     },
     {
       key:'documents',
@@ -162,7 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const kbList = document.getElementById('kb-list');
   knowledgeBase.forEach(item => {
     const li = document.createElement('li');
-    li.innerHTML = `<strong>${item.title}</strong>Sample policy topic`;
+    const tag = item.restrictedRoles ? '<span class="kb-restricted">Restricted</span>' : 'Sample policy topic';
+    li.innerHTML = `<strong>${item.title}</strong>${tag}`;
     kbList.appendChild(li);
   });
 
@@ -170,7 +228,9 @@ document.addEventListener('DOMContentLoaded', () => {
     {label:'Annual Leave', question:'How do I request annual leave?'},
     {label:'IT Request', question:'I need help with an IT issue.'},
     {label:'Purchase Request', question:'I need to submit a purchase request.'},
+    {label:'Salary Info', question:'What is my salary this month?'},
     {label:'Management Report', question:'Can you generate a management report?'},
+    {label:'Random Text', question:'kadkaha 1908103 !@#!@##a'},
   ];
   const suggestedRow = document.getElementById('suggested-row');
   suggestions.forEach(s => {
@@ -212,6 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     for (const item of knowledgeBase){
       if (item.keywords.some(k => text.includes(k))){
+        if (item.restrictedRoles && !item.restrictedRoles.includes(currentRole)){
+          return `I can see this is a ${item.title} question, but that information is restricted based on your current role ("${getRole().label}"). ${item.restrictedNote} Please contact the authorized department directly, or switch roles above to preview what an authorized user would see.`;
+        }
         return item.answer;
       }
     }
@@ -521,5 +584,10 @@ document.addEventListener('DOMContentLoaded', () => {
   renderBarChart(document.getElementById('chart-performance'), [
     {label:'IG', value:72},{label:'TikTok', value:88},{label:'FB', value:54},
   ]);
+
+  /* ---------------------------------------------------------
+     Initialize role-based view (default: Employee)
+     --------------------------------------------------------- */
+  applyRolePermissions();
 
 });
