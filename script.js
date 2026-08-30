@@ -231,6 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const suggestions = [
     {label:'Annual Leave', question:'How do I request annual leave?'},
+    {label:'Submit 3-Day Leave', question:'I want to request 3 days leave.'},
     {label:'IT Request', question:'I need help with an IT issue.'},
     {label:'Purchase Request', question:'I need to submit a purchase request.'},
     {label:'Salary Info', question:'What is my salary this month?'},
@@ -272,41 +273,92 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${prefix}-${num}`;
   }
 
+  function extractDays(text){
+    const m = text.match(/(\d+)\s*(day|days)/i);
+    return m ? parseInt(m[1], 10) : null;
+  }
+
+  function isAffirmative(text){
+    return /^\s*(yes|yeah|yep|yup|confirm|correct|sure|ok|okay|go ahead|please do)\b/i.test(text.trim());
+  }
+  function isNegative(text){
+    return /^\s*(no|nope|cancel|nevermind|never mind|don'?t)\b/i.test(text.trim());
+  }
+
+  let pendingConfirmation = null; // {days, action}
+
   function findAnswer(userText){
     const text = userText.toLowerCase();
 
     // report/management keyword — special case, not tied to a KB topic
     if (/\breport\b|\bdashboard\b|\banalytics\b/.test(text)){
-      return {text:"This appears to be a management reporting request. The production system could generate an executive summary from approved data sources. You can preview sample report types under Reports & Analytics.", action:null};
+      return {text:"This appears to be a management reporting request. The production system could generate an executive summary from approved data sources. You can preview sample report types under Reports & Analytics.", action:null, pending:null};
     }
 
     for (const item of knowledgeBase){
       if (item.keywords.some(k => text.includes(k))){
         if (item.restrictedRoles && !item.restrictedRoles.includes(currentRole)){
-          return {text:`I can see this is a ${item.title} question, but that information is restricted based on your current role ("${getRole().label}"). ${item.restrictedNote} Please contact the authorized department directly, or switch roles above to preview what an authorized user would see.`, action:null};
+          return {text:`I can see this is a ${item.title} question, but that information is restricted based on your current role ("${getRole().label}"). ${item.restrictedNote} Please contact the authorized department directly, or switch roles above to preview what an authorized user would see.`, action:null, pending:null};
         }
-        return {text:item.answer, action:item.action || null};
+
+        // Leave requests get a smarter, two-step flow: only file a request when a
+        // specific day count is actually given — a plain question just gets the policy answer.
+        if (item.key === 'leave'){
+          const days = extractDays(userText);
+          if (days){
+            return {
+              text:`Based on the sample policy, I can help with that. To confirm — you're requesting ${days} day${days > 1 ? 's' : ''} of annual leave. Should I go ahead and submit this request? (yes/no)`,
+              action:null,
+              pending:{type:'leave', days, action:item.action}
+            };
+          }
+          return {text:item.answer, action:null, pending:null};
+        }
+
+        return {text:item.answer, action:item.action || null, pending:null};
       }
     }
 
     // guess department for unmatched requests
     for (const g of departmentGuess){
       if (g.words.some(w => text.includes(w))){
-        return {text:`I don't have enough approved information to answer that accurately. This appears to be an ${g.dept} matter. Please contact ${g.dept}.`, action:null};
+        return {text:`I don't have enough approved information to answer that accurately. This appears to be an ${g.dept} matter. Please contact ${g.dept}.`, action:null, pending:null};
       }
     }
 
-    return {text:"I don't have approved information for that question. Please contact the appropriate department or use an approved company information source.", action:null};
+    return {text:"I don't have approved information for that question. Please contact the appropriate department or use an approved company information source.", action:null, pending:null};
   }
 
   function handleUserMessage(text){
     if (!text.trim()) return;
     addMessage(text, 'user');
     chatInput.value = '';
+
+    // If we're mid-confirmation on a pending request, resolve that first.
+    if (pendingConfirmation){
+      const p = pendingConfirmation;
+      pendingConfirmation = null;
+      setTimeout(() => {
+        if (isAffirmative(text)){
+          const ref = generateRef(p.action.prefix);
+          const detail = p.type === 'leave' ? ` (${p.days} day${p.days > 1 ? 's' : ''})` : '';
+          addMessage(`Demo request created — Reference #${ref}. Type: ${p.action.label}${detail}. Status: Routed to ${p.action.dept}. (Prototype simulation only — no real system connected.)`, 'assistant');
+        } else if (isNegative(text)){
+          addMessage("No problem — that request wasn't submitted. Let me know if you'd like to try again.", 'assistant');
+        } else {
+          addMessage("I didn't catch a clear yes or no — please reply \"yes\" to submit the request or \"no\" to cancel it.", 'assistant');
+          pendingConfirmation = p; // keep waiting
+        }
+      }, 400);
+      return;
+    }
+
     const result = findAnswer(text);
     setTimeout(() => {
       addMessage(result.text, 'assistant');
-      if (result.action){
+      if (result.pending){
+        pendingConfirmation = result.pending;
+      } else if (result.action){
         setTimeout(() => {
           const ref = generateRef(result.action.prefix);
           addMessage(`Demo request created — Reference #${ref}. Type: ${result.action.label}. Status: Routed to ${result.action.dept}. (Prototype simulation only — no real system connected.)`, 'assistant');
