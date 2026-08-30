@@ -300,17 +300,11 @@ document.addEventListener('DOMContentLoaded', () => {
     kbList.appendChild(li);
   });
 
-  const suggestions = [
-    {label:'Annual Leave', question:'How many annual leave days do I get?'},
-    {label:'Submit 3-Day Leave', question:'I want to request 3 days leave.'},
-    {label:'Sick Leave', question:'What is the sick leave policy?'},
-    {label:'IT Password Reset', question:'I forgot my password'},
-    {label:'PPE & Safety', question:'Do I need PPE on the tannery floor?'},
-    {label:'Purchase Request', question:'I need to submit a purchase request.'},
-    {label:'Salary Info', question:'What is my salary this month?'},
-    {label:'Incident Report', question:'I need to report a workplace accident.'},
-    {label:'Management Report', question:'Can you generate a management report?'},
-    {label:'Random Text', question:'kadkaha 1908103 !@#!@##a'},
+const suggestions = [
+    {label:'HR & Leave', question:'How can I request annual leave?'},
+    {label:'Finance', question:'How do I submit an expense claim?'},
+    {label:'IT Support', question:'I need help with my password.'},
+    {label:'Operations', question:'How do I report an operational or safety issue?'}
   ];
   const suggestedRow = document.getElementById('suggested-row');
   suggestions.forEach(s => {
