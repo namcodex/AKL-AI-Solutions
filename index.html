@@ -81,6 +81,16 @@
         </div>
       </div>
       <div class="topbar-right">
+        <select id="role-select" class="role-select" title="Simulate a role to preview access restrictions">
+          <option value="employee">Viewing as: Employee</option>
+          <option value="manager">Viewing as: Manager</option>
+          <option value="hr">Viewing as: HR</option>
+          <option value="finance">Viewing as: Finance</option>
+          <option value="it">Viewing as: IT</option>
+          <option value="sales">Viewing as: Sales</option>
+          <option value="operations">Viewing as: Operations</option>
+          <option value="admin">Viewing as: Management (CEO/CFO)</option>
+        </select>
         <span class="status-pill"><span class="status-dot"></span>Prototype Environment</span>
         <div class="user-initials small">NM</div>
       </div>
@@ -98,6 +108,10 @@
             <p class="hero-desc">A proposed AI platform designed to assist employees, automate repetitive processes, analyze documents, generate reports and connect with approved business systems.</p>
             <button class="btn btn-primary" data-nav="assistant">Open AI Assistant</button>
           </div>
+        </div>
+
+        <div class="role-banner">
+          <strong>Tip for the demo:</strong> use "Viewing as" in the top right to switch roles — the sidebar and the AI Assistant's answers change based on the selected role, simulating department-level access restrictions. This is a conceptual demonstration only, not a real authentication system.
         </div>
 
         <div class="kpi-grid">
@@ -178,6 +192,7 @@
           <h1>Al Khaznah AI Assistant</h1>
           <span class="section-tag">Prototype</span>
           <span class="status-pill small"><span class="status-dot"></span>Available</span>
+          <span class="status-pill small role-pill" id="assistant-role-pill">Employee</span>
         </div>
         <p class="page-desc">Ask a sample question below. Responses are generated from a demonstration knowledge base only — no production system is connected.</p>
 
