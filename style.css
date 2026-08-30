@@ -816,3 +816,9 @@ input{font-family:inherit;}
   .security-grid{grid-template-columns:1fr;}
   .hero h1{font-size:24px;}
 }
+
+/* AKL AI Assistant — professional suggestion controls */
+.suggested-row{align-items:center;}
+.suggested-chip{appearance:none;border:1px solid var(--border-strong);background:var(--card);color:var(--green-900);border-radius:var(--radius-sm);padding:8px 12px;font-size:11.5px;font-weight:600;line-height:1.2;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease;}
+.suggested-chip:hover{background:var(--gold-100);border-color:var(--gold-500);color:var(--green-900);}
+.suggested-chip:focus-visible{outline:2px solid var(--gold-500);outline-offset:2px;}
